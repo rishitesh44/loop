@@ -1,0 +1,159 @@
+
+
+
+
+
+
+  <mat-drawer-container class="example-container" id="ri">
+    <mat-drawer #drawer class="example-sidenav" mode="side" id="ee">
+
+      <p>
+        <mat-icon class="jj">account_circle</mat-icon> <mat-form-field class="element">&nbsp;
+          <input matInput value="username">
+        </mat-form-field>
+      </p>
+      <p *ngIf="showFiller"> </p>
+
+      <button mat-menu-item>
+        <mat-icon>dashboard</mat-icon>
+        <span>dashboard</span>
+      </button>
+
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>settings</span>
+      </button>
+   
+      <button mat-menu-item>
+        <mat-icon>account_circle</mat-icon>
+        <span>useronboard</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>plus_one</mat-icon>
+        <span>adduser</span>
+      </button>
+
+
+
+    </mat-drawer>
+    <div class="example-sidenav-content">
+      <!--The content below is only a placeholder and can be replaced.-->
+      <mat-toolbar class="nav-theme">
+        <mat-toolbar-row>
+          <button type="button" mat-button (click)="drawer.toggle()">
+            <mat-icon>arrow_forward_ios</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <mat-icon>dashboard</mat-icon>
+              <span>dashboard</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>settings</mat-icon>
+              <span>settings</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>account_circle</mat-icon>
+              <span>useronboard</span>
+            </button>
+            <button mat-menu-item>
+
+              <mat-icon>plus_one</mat-icon>
+              <span>adduser</span>
+            </button>
+          </mat-menu>
+          <span class="f">LOOP REALITY</span>
+          <span class="example-spacer"></span>
+          <a href=""><button mat-raised-button class="nav-theme">logout</button></a>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <mat-tab-group dynamicHeight="true">
+
+        <mat-tab label="Dashboard" name="dash">
+
+          <div class="example-container mat-elevation-z8">
+            <mat-table #table [dataSource]="dataSource">
+
+              <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+              <!-- Position Column -->
+              <ng-container matColumnDef="position">
+                <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+              </ng-container>
+
+              <!-- Name Column -->
+              <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+              </ng-container>
+
+              <!-- Weight Column -->
+              <ng-container matColumnDef="email">
+                <mat-header-cell *matHeaderCellDef> email </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+              </ng-container>
+
+              <!-- Symbol Column -->
+              <ng-container matColumnDef="symbol">
+                <mat-header-cell *matHeaderCellDef> Job_role </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+          </div>
+        </mat-tab>
+        <mat-tab label="Useronboard">
+          <div class="example-container mat-elevation-z8">
+            <mat-table #table [dataSource]="dataSource">
+
+              <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+              <!-- Position Column -->
+              <ng-container matColumnDef="position">
+                <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+              </ng-container>
+
+              <!-- Name Column -->
+              <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+              </ng-container>
+
+              <!-- Weight Column -->
+              <ng-container matColumnDef="email">
+                <mat-header-cell *matHeaderCellDef> email </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+              </ng-container>
+
+              <!-- Symbol Column -->
+              <ng-container matColumnDef="symbol">
+                <mat-header-cell *matHeaderCellDef> Job_role </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+          </div>
+        </mat-tab>
+        <mat-tab label="Settings" id="rr">
+
+          <mat-form-field class="t">
+            <mat-label>Job Roles</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let jobroles of jobroless" [value]="jobroles.value">
+                {{jobroles.viewValue}}
+              </mat-option>
+            </mat-select>
+
+          </mat-form-field >
+          <button mat-button>add</button>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+<router-outlet></router-outlet>
+
